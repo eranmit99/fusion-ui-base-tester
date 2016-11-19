@@ -1,5 +1,4 @@
 'use strict';
-
 import gulp     from 'gulp';
 import webpack  from 'webpack';
 import path     from 'path';
@@ -11,8 +10,12 @@ import serve    from 'browser-sync';
 import webpackDevMiddelware from 'webpack-dev-middleware';
 import webpachHotMiddelware from 'webpack-hot-middleware';
 import colorsSupported      from 'supports-color';
+import inject   from 'gulp-inject';
+import svgSprite from 'gulp-svg-sprite';
+import clean from 'gulp-clean';
 
 let root = 'src';
+let temp = 'temp';
 
 // helper method for resolving paths
 let resolveToApp = (glob = '') => {
@@ -24,20 +27,21 @@ let resolveToComponents = (glob = '') => {
 };
 
 // map of all paths
+let mainHtmlFile = path.join(root, 'index.html');
 let paths = {
   js: resolveToComponents('**/*!(.spec.js).js'), // exclude spec files
   styl: resolveToApp('**/*.styl'), // stylesheets
   html: [
     resolveToApp('**/*.html'),
-    path.join(root, 'index.html')
+    mainHtmlFile
   ],
-  entry: path.join(__dirname, root, 'app/app.js'),
+  entry: path.join(__dirname, root, 'index.js'),
   output: root,
   blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**')
 };
 
 // use webpack.config.js to build modules
-gulp.task('webpack', (cb) => {
+gulp.task('webpack',['generate-svg'], (cb) => {
   const config = require('./webpack.dist.config');
   config.entry.app = paths.entry;
 
@@ -56,7 +60,47 @@ gulp.task('webpack', (cb) => {
   });
 });
 
-gulp.task('serve', () => {
+gulp.task('generate-svg', ['clean-temp'], () => {
+	console.log('generate');
+});
+
+gulp.task('sprites', () => {
+	return gulp.src(resolveToApp('icons/*.svg'))
+		.pipe(svgSprite(
+			{
+				mode: {
+        	        symbol: {
+        	        	dest: './',
+        	        	sprite: 'sprite.svg'
+        	        }
+	            }
+	        }
+		))
+		.pipe(gulp.dest('temp/icons'))
+});
+
+gulp.task('inject', ['sprites'], () => {
+	return gulp.src(mainHtmlFile)
+		.pipe( inject( gulp.src(['./temp/icons/sprite.svg'], {read: true}), {
+			name: 'sprite',
+			transform: function (filePath, file) {
+				return file.contents.toString('utf8')
+			}
+		}))
+		.pipe(gulp.dest(root))
+});
+
+gulp.task('copyfonts', function() {
+	gulp.src('./app/**/*.{ttf,woff,eof,svg}')
+	.pipe(gulp.dest('./dist/fonts'));
+});
+
+gulp.task('clean-temp', ['inject'], () => {
+	return gulp.src(temp, {read: false})
+	.pipe(clean());
+});
+
+gulp.task('serve', ['generate-svg'], () => {
   const config = require('./webpack.dev.config');
   config.entry.app = [
     // this modules required to make HRM working

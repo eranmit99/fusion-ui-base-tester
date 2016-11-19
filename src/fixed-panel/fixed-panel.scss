@@ -1,0 +1,13 @@
+fusion-fixed-panel {
+	max-width: 300px;
+	margin-top: 25px;
+	display: block;
+	position: relative;
+	.fixed-panel-inner {
+		left: 0;
+		right: 0;
+	}
+	&.pull-right {
+		margin-left: auto;
+	}
+}

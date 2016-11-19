@@ -1,0 +1,12 @@
+<table class="fusion-props-table" ng-if="vm.data">
+	<thead>
+		<tr>
+			<th ng-repeat="(k, title) in vm.headers">{{title}}</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="(i, row) in vm.data">
+			<td ng-repeat="(p, prop) in vm.headers" ng-class="prop">{{row[prop]}}</td>
+		</tr>
+	</tbody>
+</table>

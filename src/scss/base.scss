@@ -1,0 +1,54 @@
+@import 'reset';
+@import 'grid';
+
+/**
+ *
+ * Global Typography Rules
+ *
+ */
+
+
+body {
+	color: #222532;
+	font-size: 13px;
+	line-height: 18px;
+}
+
+.disabled {
+	cursor: default;
+	pointer-events: none;
+	opacity: .4;
+}
+.example {
+	margin: 25px;
+}
+.form-row {
+	margin-bottom: 15px;
+}
+
+// H's
+h1 {
+	margin: 0;
+	padding: 1.5em 0 0;
+	font-size: 200%;
+	line-height: 1.2em;
+	font-family: 'NHG Display Black';
+}
+h2 {
+    font-family: "NHG Text";
+    font-size: 140%;
+    padding: 1.5em 0 0;
+    margin: 0;
+}
+h3 {
+
+}
+h4 {
+
+}
+h5 {
+
+}
+h6 {
+
+}

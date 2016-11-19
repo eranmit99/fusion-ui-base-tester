@@ -1,0 +1,44 @@
+fusion-anchor-navigation {
+	display: block;
+	>ul {
+		li {
+			cursor: pointer;
+			line-height: 1.2;
+			font-size: 14px;
+			position: relative;
+			&.active {
+				> span {
+					font-weight: bold;
+					color: #000;
+				}
+			}
+			ul {
+				overflow: hidden;
+				max-height: 0;
+				transition: all cubic-bezier(0, 1, 0.5, 1) .2s .1s;
+				li {
+					font-size: 13px;
+					padding: 5px 0;
+				}
+			}
+			.drop {
+				position: absolute;
+				right: 0;
+				top: 12px;
+			}
+		}
+		& > li {
+			> span {
+				font-weight: bold;
+				color: #000;
+				display: block;
+				padding: 7px 0;
+			}
+			ul.exp {
+				max-height: 500px;
+				transition: all cubic-bezier(0, 1, 0.5, 1) 1s, margin-bottom linear 0;
+				margin-bottom: 15px;
+			}
+		}
+	}
+}

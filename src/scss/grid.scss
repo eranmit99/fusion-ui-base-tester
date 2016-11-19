@@ -1,0 +1,23 @@
+* {
+	box-sizing: border-box;
+}
+
+svg {
+	height: 15px;
+	width: 15px;
+	display: inline-block;
+	position: relative;
+	use {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 50px 0;
+}

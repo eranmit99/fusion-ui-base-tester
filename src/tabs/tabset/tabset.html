@@ -1,0 +1,4 @@
+<fusion-tabs active="active" tabs="passTabs" class="shadow">
+	<fusion-tab-heading active="tab.active" loop="true" tab-id="{{$index}}" ng-repeat="tab in tabs">{{tab.title}}</fusion-tab-heading>
+</fusion-tabs>
+<ng-transclude></ng-transclude>

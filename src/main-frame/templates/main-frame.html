@@ -1,0 +1,29 @@
+<div ng-class="{collapsed: DashboardStateService.isCollapsed, 'menu-opened': menuOpened}">
+<fusion-main-frame-header menu="headerMenu" actions="additionalActions"></fusion-main-frame-header>
+<div class="main-menu-wrapper" ng-mouseleave="menuOpened = false" ng-mouseenter="menuOpened = true" ng-class="{opened: menuOpened , collapsed: DashboardStateService.isCollapsed}">
+  <fusion-main-frame-menu collection="menuItems"></fusion-main-frame-menu>
+  <div class="mobile-menu">
+    <div class="mobile-user-menu">
+      <div class="user-account">
+        <div>My Account</div>
+        <div class="user-name">David Cohen</div>
+      </div>
+      <a href="" class="mobile-btn-logout">Logout</a>
+    </div>
+    <div class="mobile-help-menu">
+      <div class="action">
+        <i class="material-icons">help_outline</i>
+        <div>Knowledge Center</div>
+      </div>
+      <div class="action">
+        <i class="material-icons">mail_outline</i>
+        <div>Contact Us</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-content" id="main-view">
+  <div ui-view class="page-view"></div>
+  <fusion-main-frame-footer></fusion-main-frame-footer>
+</div>
+</div>

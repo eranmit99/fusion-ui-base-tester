@@ -9,8 +9,10 @@ module.exports = {
     loaders: [
        { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
        { test: /\.html$/, loader: 'raw' },
-       { test: /\.scss$/, loaders: ["style", "css", "sass"]},
-       { test: /\.css$/, loader: 'style!css' }
+       { test: /\.scss$/, loaders: ["style", "css", "sass",]},
+       { test: /\.css$/, loader: 'style!css-loader?importLoaders=1' },
+       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+       { test: /\.(png|svg)$/, loader: 'url-loader?limit=100000' },
     ]
   },
   plugins: [
@@ -18,7 +20,7 @@ module.exports = {
     // It also adds hash to all injected assets so we don't have problems
     // with cache purging during deployment.
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'index.html',
       inject: 'body',
       hash: true
     }),

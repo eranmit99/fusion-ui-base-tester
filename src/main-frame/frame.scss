@@ -1,0 +1,43 @@
+@import 'vars';
+@import './main-menu/main-menu';
+@import './header/header';
+@import './footer/footer';
+@import './min-dropdown/min-dropdown';
+
+.main-content {
+  position: relative;
+  height: 100%;
+  margin-left: $leftMenuWidth + $contentMargin;
+  padding-right: $contentMargin;
+  height: calc(100vh - #{$headerPaddingSm} - #{$headerPanelHeight});
+  overflow-y: auto;
+  transition: margin .45s ease-out;
+
+  @media (max-width: $mobileMaxScreen) {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: $tabletMinScreen) and (max-width: $tabletMaxScreen) {
+    margin-left: $contentMargin;
+  }
+
+  @media (min-width: $desktopMinScreen) {
+    height: calc(100vh - #{$headerPaddingLarge} - #{$headerPanelHeight});
+  }
+}
+
+.collapsed {
+  .main-content {
+    @media (min-width: $smallLaptopMinScreen){
+      margin-left: $leftMenuCollapsedWidth + $contentMargin;
+    }
+  }
+}
+
+.page-view {
+	padding: 0 0 0 25px;
+  min-height: calc(100% - #{$headerPanelHeight} - #{$contentMargin});
+}

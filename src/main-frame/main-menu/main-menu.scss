@@ -1,0 +1,343 @@
+$sectionHeight: 50px;
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.main-menu-wrapper {
+  position: fixed;
+  left: 0;
+  top: $headerPanelHeight;
+  background-color: $DarkGrey2;
+  height: 100%;
+  z-index: 99;
+  width: auto;
+  > .main-menu {
+    width: $leftMenuWidth;
+    transition: all .45s ease-out;
+    height: calc(100vh - #{$headerPanelHeight});
+    > ul {
+      height: 100%;
+    }
+    a, span {
+      display: inline-block;
+      padding: 18px 18px 18px 47px;
+      cursor: pointer;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+  }
+}
+
+.main-menu{
+  width: auto;
+
+  // First level styles
+
+  ul > li.main-menu-item {
+    position: relative;
+    border-left: 5px solid transparent;
+    box-sizing: border-box;
+    white-space: nowrap;
+    a, span {
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 1.27;
+      color: $White;
+    }
+
+    .item-icon {
+      position: absolute;
+      left: 19px;
+      top: 14px;
+      font-size: 18px;
+      color: $White;
+      z-index: 99;
+    }
+
+    &.active {
+      border-left: 5px solid $Green;
+      a, span {
+        color: $Green;
+      }
+      .item-icon {
+        color: $Green;
+      }
+    }
+
+    &:hover {
+      background-color: $DarkGrey1;
+    }
+
+    &.open, &.active {
+      background-color: $DarkGrey1;
+      li {
+        background-color: $DarkGrey1;
+      }
+      a, span {
+
+        background-color: $DarkGrey1;
+
+        @media (max-width: $mobileMaxScreen) {
+          border-bottom: 0;
+        }
+      }
+
+
+
+  }
+
+   &.open {
+     max-height: 500px;
+     transition: max-height, .45s ease-out .2s;
+
+     .arrow {
+       transform: rotate(90deg);
+       color: $White;
+     }
+    > .sub-menu {
+
+      > .main-menu {
+
+        li.main-menu-item {
+          border-left: 0;
+          a, span {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  }
+
+  // Sub menu styles
+
+  ul > li.main-menu-item {
+    overflow: hidden;
+    max-height: $sectionHeight;
+    transition: max-height, .45s ease-out;
+    > .sub-menu {
+      transition: opacity .45s ease-out;
+       > .main-menu {
+         margin-right: 10px;
+         margin-top: 1px;
+         li:first-child .sub-menu {
+           span {
+             padding-top: 0;
+           }
+         }
+       }
+        i.arrow {
+          position: absolute;
+          right: 18px;
+          top: 17px;
+          font-size: 18px;
+        }
+
+        li.main-menu-item {
+          border-left: 0;
+          &.active {
+            border-left: 0;
+            a, span {
+              color: $Green;
+              border-bottom: 0;
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 18px;
+          }
+
+          &.subtitle {
+            margin-left: 47px;
+            margin-top: 10px;
+            border-top: 1px solid $Grey10;
+            &:first-child {
+              padding-top: 9px;
+              margin-top: 0;
+            }
+            a, span {
+              font-size: 11px;
+              padding-left: 0;
+              text-transform: uppercase;
+              color: $Grey20;
+              &:hover {
+                color: $Grey20;
+                cursor: default;
+              }
+            }
+          }
+
+         a, span {
+           padding-left: 60px;
+           padding-top: 13px;
+           padding-bottom: 0;
+           font-size: 13px;
+           text-transform: none;
+           color: $White;
+           &:hover {
+             color: $Green;
+           }
+         }
+      }
+    }
+  }
+
+}
+.mobile-menu {
+  display: none;
+  .user-account {
+    float: left;
+    color: $White;
+
+    .user-name {
+      color: $Grey20;
+    }
+  }
+}
+.mobile-user-menu {
+  padding: 20px;
+  height: 70px;
+  background-color: $DarkGrey2;
+  box-sizing: border-box;
+}
+.mobile-help-menu {
+  height: 70px;
+  background-color: $Grey50;
+  .action {
+    padding-top: 12px;
+    float: left;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    &:first-child {
+      border-right: 1px solid $Grey40;
+    }
+  }
+}
+.mobile-btn-logout {
+  display: block;
+  float: right;
+  padding: 6px 0;
+  width: 88px;
+  text-align: center;
+  text-decoration: none;
+  color: $White;
+  border: 1px solid $White;
+  border-radius: 100px;
+}
+
+@media (max-width: $mobileMaxScreen) {
+  .mobile-menu {
+    display: block;
+  }
+  .main-menu-wrapper {
+    display: block;
+    display: block;
+    width: 100%;
+    top: $mobileHeaderHeight;
+    background: $White;
+    height: auto;
+    overflow: scroll;
+    > .main-menu {
+
+    }
+    .main-menu {
+      height: auto !important;
+      li.main-menu-item.subtitle {
+        display: none !important;
+      }
+      li.main-menu-item.active {
+        span {
+          border-bottom: 0;
+        }
+      }
+      .sub-menu {
+        i.arrow {
+          display: none;
+        }
+      }
+    }
+    > .main-menu {
+      width: 100%;
+    }
+    ul > li.main-menu-item {
+      max-height: none;
+      background-color: $DarkGrey1;
+      border-bottom: 1px solid $Grey10;
+
+      li.main-menu-item {
+        border: 0;
+      }
+
+    }
+
+  }
+}
+
+@media (min-width: $smallLaptopMinScreen) and (max-width: $largeLaptopMaxScreen) {
+  .main-menu-wrapper {
+    top: $headerPanelHeight + $headerPaddingSm;
+  }
+}
+
+@media (min-width: $tabletMinScreen) and (max-width: $tabletMaxScreen) {
+  .main-menu-wrapper {
+    > .main-menu {
+      > ul {
+        overflow: auto;
+      }
+    }
+    &.collapsed {
+      display: none;
+      > .main-menu {
+        display: none;
+      }
+    }
+
+  }
+}
+
+
+.main-menu-wrapper.collapsed {
+  @media (max-width: $mobileMaxScreen) {
+    display: none;
+    > .main-menu {
+      display: none;
+    }
+  }
+
+  @media (min-width: $smallLaptopMinScreen) {
+    @import 'main-menu-collapsed';
+    &.opened {
+    box-shadow: 3px 0 5px 0 rgba(0,0,0,.3);
+      > .main-menu {
+        width: $leftMenuWidth;
+        .sub-menu {
+          opacity: 1;
+          transition: opacity .45s ease-out;
+        }
+        ul > li.main-menu-item {
+          &.open {
+            max-height: 500px;
+            transition: max-height .45s ease-out .45s;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: $desktopMinScreen) {
+  .main-menu-wrapper {
+    top: $headerPanelHeight + $headerPaddingLarge;
+  }
+
+}

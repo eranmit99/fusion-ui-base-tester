@@ -1,0 +1,24 @@
+@import '../scss/vars';
+
+.fusion-tabs {
+	flex-wrap: wrap;
+	flex-direction: row;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 15px;
+	> * {
+		display: flex;
+	}
+	&:after {
+		clear: both;
+		width: 100%;
+		content: "";
+		display: block;
+	}
+	.shadow & {
+		border-radius: 3px;
+		box-shadow: 0 1px 3px 0 rgba(#000, 0.23);
+	}
+}

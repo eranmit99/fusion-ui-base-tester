@@ -1,0 +1,21 @@
+<li ui-sref-active="active" class="main-menu-item" ng-class="{open: $parent.currentItem == item, subtitle: item.isSubtitle}">
+  <i ng-if="item.icon" ng-show="StateService.isCollapsed" ng-class="{show: StateService.isCollapsed}" class="material-icons item-icon"></i>
+  <div class="sub-menu">
+    <span ng-click="selected(item)" ng-if="(item.state && !item.abstract )" ui-sref="{{item.state}}">
+      <svg ng-if="item.icon"><use xlink:href="" ng-href="#{{item.icon}}"></use></svg>
+      {{item.title}}
+      <i class="material-icons arrow" ng-if="item.children"></i>
+    </span>
+    <span ng-click="selected(item)" ng-if="(item.state && item.abstract )">
+      <span style="display:none;" ui-sref="{{item.state}}"></span>
+      <i ng-if="item.icon" class="material-icons item-icon"></i>
+      {{item.title}}
+      <i class="material-icons arrow" ng-if="item.children"></i>
+    </span>
+    <span ng-click="selected(item)" ng-if="!item.state">
+      <i ng-if="item.icon" class="material-icons item-icon"></i>
+      {{item.title}}
+      <i class="material-icons arrow" ng-if="item.children"></i>
+    </span>
+  </div>
+</li>

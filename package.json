@@ -5,7 +5,10 @@
   "main": "index.js",
   "dependencies": {
     "angular": "^1.5.0",
-    "angular-ui-router": "^1.0.0-beta.1",
+    "angular-slick-carousel": "^3.1.7",
+    "angular-ui-bootstrap": "^2.2.0",
+    "angular-ui-router": "^1.0.0-beta.3",
+    "bootstrap-grid": "^2.0.1",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {
@@ -23,9 +26,14 @@
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.19.0",
     "del": "^2.2.0",
+    "file-loader": "^0.9.0",
+    "font-loader": "^0.1.2",
     "fs-walk": "0.0.1",
     "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-inject": "^4.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-svg-sprite": "^1.3.6",
     "gulp-template": "^3.0.0",
     "gulp-util": "^3.0.7",
     "html-webpack-plugin": "^1.7.0",
@@ -48,6 +56,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
     "supports-color": "^3.1.2",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.6.0",
@@ -63,7 +72,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angularclass/NG6-starter.git"
+    "url": "https://github.com/eranmitIronSrc/fusion-ui-base-tester.git"
   },
   "author": "AngularClass",
   "license": "Apache-2.0"

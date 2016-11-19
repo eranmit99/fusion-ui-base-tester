@@ -1,0 +1,17 @@
+<i class="icon" ng-if="vm.icon && !vm.loading"><svg><use xlink:href="" ng-href="#{{vm.icon}}"></use></svg></i>
+<i class="icon" ng-if="vm.loading"><svg><use xlink:href="" ng-href="#loading"></use></svg></i>
+<input 
+	type="text" 
+	class="fusion-input"
+	placeholder="{{vm.placeholder}}" 
+	ng-readonly="vm.readonly"
+	ng-required="vm.required"
+	ng-minlength="1"
+	name="vm.name"
+	ng-class="{disabled: vm.disabled, fullwidth: vm.size < 0, iconed: vm.icon || vm.loading, btned: vm.btn}"
+	required
+	ng-change="vm.onChange"
+	ng-model="vm.ngModel"
+	size="{{vm.size}}"
+	><button ng-show="vm.btn" ng-click="vm.btnAction()">{{vm.btn}}</button>
+<div class="error-msg" ng-if="vm.error">{{vm.error}}</div>

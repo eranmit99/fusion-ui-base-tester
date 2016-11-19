@@ -1,0 +1,11 @@
+<ul class="fusion-anchor-nav" ng-if="collection">
+	<li class="anchor-nav-item" ng-repeat="(i, item) in collection" ng-class="{active: i == active}">
+		<span ng-click="scrollTo(item)">{{item.title}}</span>
+		<i class="drop" ng-show="item.children" ng-click="toggleSubNav(item)"></i>
+		<ul ng-if="item.children" class="anchor-subnav" ng-class="{exp: item.opened}">
+			<li class="anchor-nav-child" ng-repeat="(c, child) in item.children" ng-class="{active: i == active && c == subActive}">
+				<span ng-click="scrollTo(child)">{{child.title}}</span>
+			</li>
+		</ul>
+	</li>
+</ul>

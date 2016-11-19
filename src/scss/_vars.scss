@@ -1,0 +1,40 @@
+.small {
+	font-size: 90%;
+}
+
+/* Colors */
+$dark: #0B1625;
+$dark-500: $dark;
+$dark-300: lighten($dark, 10%);
+$dark-400: lighten($dark, 5%);
+
+$light: #E1E6EB;
+$light-500: $light;
+$light-100: lighten($light, 8%);
+$light-200: lighten($light, 6%);
+$light-300: lighten($light, 3%);
+$light-400: lighten($light, 1%);
+$light-600: darken($light, 10%);
+$light-700: darken($light, 25%);
+$light-800: darken($light, 40%);
+$light-900: darken($light, 50%);
+
+$primary: #3091F6;
+$primary-100: lighten($primary, 40%);
+$primary-200: lighten($primary, 30%);
+
+$positive: #13C7C8;
+$positive-500: $positive;
+$positive-100: lighten($positive, 50%);
+$positive-200: lighten($positive, 40%);
+
+$neutral: #FFBB5F;
+$neutral-500: $neutral;
+$neutral-100: lighten($neutral, 30%);
+$neutral-200: lighten($neutral, 20%);
+$neutral-700: darken($neutral, 18%);
+
+$negative: #e1174c;
+$negative-500: $negative;
+$negative-100: lighten($negative, 48%);
+$negative-200: lighten($negative, 30%);

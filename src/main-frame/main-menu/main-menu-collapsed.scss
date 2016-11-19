@@ -1,0 +1,23 @@
+> .main-menu {
+  width: $leftMenuCollapsedWidth;
+  height: 100%;
+  background-color: #282b3d;
+
+  ul > li.main-menu-item {
+      max-height: 49px;
+      transition: max-height, .45s ease-out;
+  }
+
+  ul > li.main-menu-item {
+      &.active {
+        background-color: $DarkGrey1;
+      }
+
+  }
+
+  .sub-menu {
+    opacity: 0;
+    transition: opacity .45s ease-out;
+  }
+
+}

@@ -1,0 +1,84 @@
+@import '../../scss/vars';
+
+fusion-tab-heading {
+	// align-self: flex-end;
+	margin-right: 0 !important;
+	display: flex;
+	min-height: 65px;
+	* {
+		box-sizing: border-box;
+	}
+	&.pull-right {
+		margin-left: auto;
+	}
+	.fusion-tab-heading {
+		min-width: 140px;
+		display: flex;
+		flex-direction: column;
+		padding: 0 10px 10px;
+		cursor: pointer;
+		text-align: center;
+		&.active {
+			position: relative;
+			color: $primary;
+			fill: $primary;
+			&:after {
+				content: "";
+				height: 4px;
+				background: $primary;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+		}
+		> *:first-child {
+			margin-top: auto;
+		}
+		span {
+			display: block;
+		}
+	}
+	&.disabled {
+		opacity: 1;
+		.fusion-tab-heading {
+			background: $light-100;
+			color: $light-800;
+			fill: $light-800;
+			&.active {
+				&:after {
+					background: $light-800;
+				}
+			}
+		}
+	}
+	&.divided {
+		border-left: 1px solid $light;
+		&:last-child {
+			border-right: 1px solid $light;
+		}
+	}
+	&.min {
+		min-height: 45px;
+		.fusion-tab-heading {
+			min-width: 116px;
+			&.active {
+				&:after {
+					height: 2px;
+				}
+			}
+		}
+	}
+	&.pull-right {
+		float: right;
+	}
+	&.divided {
+
+	}
+	.stretch & {
+		flex: 1;
+		.fusion-tab-heading {
+			flex: 1;
+		}
+	}
+}

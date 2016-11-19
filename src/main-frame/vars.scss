@@ -1,0 +1,108 @@
+// Colors
+
+$White: #FFF;
+
+$DarkGrey1: #222532;
+$DarkGrey2: #282b3d;
+$Grey10: #4D505F;
+$Grey20: #828D9A;
+$Grey30: #8CA0B3;
+$Grey40: #E1E6EB;
+$Grey50: #F0F3F5;
+$Grey60: #F9FAFB;
+$GreyBackground: #F1F5F6;
+
+$StrokeButtons: #dfe0e0;
+
+$Purple: #6D68F8;
+$LightPurple: #CDD1DF;
+$vLightPurple: #F4F4FE;
+$GradientPurple: #7e52ff;
+
+$Red: #E1174C;
+$LightRed: #E74F77;
+
+$Green: #18bdbe;
+$LightGreen: #A2E4E5;
+$GradientGreen: #17E2D8;
+
+// Breakpoints
+
+$mobileMinScreen: 320px;
+$mobileMaxScreen: 1023px;
+$tabletMinScreen: 1024px;
+$tabletMaxScreen: 1279px;
+$smallLaptopMinScreen: 1280px;
+$smallLaptopMaxScreen: 1439px;
+$largeLaptopMinScreen: 1440px;
+$largeLaptopMaxScreen: 1919px;
+$desktopMinScreen: 1920px;
+$desktopMaxScreen: 2559px;
+$hugeDesktopScreen: 2600px;
+
+body:before {
+  content: "desktop";
+  display: none; /* Prevent from displaying. */
+}
+
+@media (max-width: $mobileMaxScreen) {
+  body:before {
+    content: "mobile";
+  }
+}
+
+@media (min-width: $tabletMinScreen) and (max-width: $tabletMaxScreen) {
+  body:before {
+    content: "tablet";
+  }
+}
+
+@media (min-width: $smallLaptopMinScreen) and (max-width: $smallLaptopMaxScreen) {
+  body:before {
+    content: "smLaptop";
+  }
+}
+
+@media (min-width: $largeLaptopMinScreen) and (max-width: $largeLaptopMaxScreen) {
+  body:before {
+    content: "lgLaptop";
+  }
+}
+
+@media (min-width: $desktopMinScreen) and (max-width: $desktopMaxScreen) {
+  body:before {
+    content: "desktop";
+  }
+}
+
+@media (min-width: $hugeDesktopScreen) {
+  body:before {
+    content: "hugeDesktop";
+  }
+}
+
+// Vars
+
+$mobileHeaderHeight: 50px;
+$headerPanelHeight: 60px;
+$footerHeight: 60px;
+$leftMenuWidth: 220px;
+$leftMenuCollapsedWidth: 70px;
+$contentMargin: 10px;
+$headerPaddingSm: 6px;
+$headerPaddingLarge: 50px;
+
+@mixin main-gradient($from, $to) {
+  background: $from;
+  background: -webkit-linear-gradient(left, $from 0%, $to 100%);
+  background: -o-linear-gradient(left, $from 0%, $to 100%);
+  background: linear-gradient(to right, $from 0%, $to 100%);
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

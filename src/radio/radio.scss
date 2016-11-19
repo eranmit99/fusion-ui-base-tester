@@ -1,0 +1,70 @@
+@import '../scss/vars';
+fusion-radio {
+	& + & {
+		margin-left: 20px;
+	}
+}
+.fusion-radio {
+	line-height: 20px;
+	& + .fusion-radio {
+		margin-left: 20px;
+	}
+	input {
+		display: none;
+	}
+	label {
+		display: inline-block;
+		padding-left: 25px;
+		cursor: pointer;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 18px;
+			height: 18px;
+			background: #fff;
+			border-radius: 10px;
+			border: 1px solid $light-600;
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+		&:after {
+			content: "";
+			display: none;
+			width: 6px;
+			height: 6px;
+			background: $primary;
+			position: absolute;
+			top: 7px;
+			left: 7px;
+			border-radius: 3px;
+		}
+	}
+	input:checked + label {
+		&:after {
+			display: block;
+			background: #fff;
+		}
+		&:before {
+			border-color: $primary;
+			background: $primary;
+			display: block;
+		}
+	}
+
+	&.disabled {
+		border: none;
+		opacity: .6;
+		label {
+			&:before {
+				background: #fff;
+			}
+			&:after {
+				background: $primary;
+			}
+		}
+	}
+}

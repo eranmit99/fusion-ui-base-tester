@@ -1,0 +1,36 @@
+@import '../scss/vars';
+
+fusion-properties-table {
+	display: block;
+	.fusion-props-table {
+		width: 100%;
+		tr {
+			th,
+			td {
+				padding: 10px 3.4% 4px 0;
+				text-align: left;
+				white-space: nowrap;
+				color: $light-800;
+				&:last-child {
+					width: 100%;
+					white-space: normal;
+				}
+				border-bottom: 1px solid $light;
+			}
+			th {
+				text-transform: uppercase;
+				font-size: 92%;
+				color: $primary;
+			}
+			td {
+				padding-bottom: 11px;
+				&.type {
+					color: $neutral-700;
+				}
+				&:first-child {
+					color: $dark-300;
+				}
+			}
+		}
+	}
+}

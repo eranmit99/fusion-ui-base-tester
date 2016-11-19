@@ -1,0 +1,68 @@
+@import '../scss/vars';
+@import '../scss/fonts';
+
+fusion-input {
+	display: block;
+	position: relative;
+	.error-msg {
+		color: $negative;
+		display: none;
+		padding: 5px 0 0 0;
+		@extend .small;
+	}
+	.icon {
+		position: absolute;
+		pointer-events: none;
+		left: 6px;
+		top: 10px;
+	}
+	input {
+		padding: 6px 10px 7px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		height: 35px;
+		border: 1px solid $light;
+		&:focus {
+			border-color: $primary;
+			outline: none;
+			& + button {
+				border-color: $primary;
+			}
+		}
+		&.ng-invalid.ng-touched {
+			& ~ .error-msg {
+				display: block;
+			}
+		}
+		&.fullwidth {
+			width: 100%;
+		}
+		&.iconed {
+			padding-left: 25px;
+		}
+		&.btned {
+			border-radius: 3px 0 0 3px;
+			border-right: none;
+		}
+	}
+	button {
+		box-sizing: border-box;
+		padding: 6px 10px 7px;
+		position: relative;
+		border: 1px solid $light;
+		border-left: none;
+		background: none;
+		border-radius: 0 3px 3px 0;
+		outline: none;
+		color: $primary;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 4px;
+			bottom: 4px;
+			left: 0;
+			width: 1px;
+			background: $light;
+		}
+	}
+}

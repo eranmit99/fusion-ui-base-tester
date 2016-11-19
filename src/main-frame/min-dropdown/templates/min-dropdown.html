@@ -1,0 +1,15 @@
+<div class="min-dropdown-btn" ng-click="opened = !opened">
+  <i class="icon {{dropdownIcon}}" ng-class="{green: opened}"></i>
+  <span class="min-dropdown__title">{{ngModel.name}}</span>
+</div>
+<ul ng-show="opened" class="dropdown">
+  <li ng-if="ngModel" class="user-name">
+    <span>
+      <i class="icon user-icon"></i>
+      {{ngModel.name}}
+    </span>
+  </li>
+  <li ng-repeat="item in options">
+    <a href="{{item.url}}">{{item.name}}</a>
+  </li>
+</ul>

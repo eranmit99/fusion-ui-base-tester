@@ -1,0 +1,30 @@
+<header class="top-header">
+  <div class="top-header__logo">
+    <span ui-sref="main" class="logo"></span>
+  </div>
+  <div class="top-header__panel">
+    <i class="menu-icon white" ng-click="changeMenuState()">
+    </i>
+    <i class="menu-icon white icon-x" ng-click="changeMenuState()"></i>
+    <h1 class="page-title">Page title</h1>
+    <ul class="user-menu">
+      <li ng-repeat="item in menu">
+        <fusion-main-frame-dropdown
+          class="{{item.className}} min-dropdown"
+          ng-model="item.model"
+          dropdown-icon="{{item.icon}}"
+          options=item.options>
+        </fusion-main-frame-dropdown>
+      </li>
+    </ul>
+    <!-- Here comes additional actions -->
+    <ul ng-if="actions" class="additional-actions">
+      <li ng-repeat="action in actions">
+        <div ng-if="action.type === 'callToAction'">
+          <span>+</span>
+          <span class="action" ng-click="callAction(action.event)">{{action.name}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>

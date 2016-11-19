@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
+@font-face {
+	font-family: 'NeueHaasGroteskDisp Pro';
+	src: url('/app/fonts/NHaasGroteskDSPro-75Bd.eot');
+	src: url('/app/fonts/NHaasGroteskDSPro-75Bd.eot?#iefix') format('embedded-opentype'),
+		url('/app/fonts/NHaasGroteskDSPro-75Bd.woff2') format('woff2'),
+		url('/app/fonts/NHaasGroteskDSPro-75Bd.woff') format('woff'),
+		url('/app/fonts/NHaasGroteskDSPro-75Bd.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeueHaasGroteskText Pro';
+	src: url('/app/fonts/NHaasGroteskTXPro-75Bd.eot');
+	src: url('/app/fonts/NHaasGroteskTXPro-75Bd.eot?#iefix') format('embedded-opentype'),
+		url('/app/fonts/NHaasGroteskTXPro-75Bd.woff2') format('woff2'),
+		url('/app/fonts/NHaasGroteskTXPro-75Bd.woff') format('woff'),
+		url('/app/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NeueHaasGroteskText Pro Md';
+	src: url('/app/fonts/NHaasGroteskTXPro-65Md.eot');
+	src: url('/app/fonts/NHaasGroteskTXPro-65Md.eot?#iefix') format('embedded-opentype'),
+		url('/app/fonts/NHaasGroteskTXPro-65Md.woff2') format('woff2'),
+		url('/app/fonts/NHaasGroteskTXPro-65Md.woff') format('woff'),
+		url('/app/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+$black: 'NeueHaasGroteskDisp Pro', sans-serif;
+$bold: 'NeueHaasGroteskText Pro', sans-serif;
+$medium: 'NeueHaasGroteskText Pro Md', sans-serif;
+$regular: 'Open Sans', sans-serif;
